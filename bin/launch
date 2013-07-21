@@ -1,0 +1,22 @@
+#!/home/stacked/projects/gplus-quickstart-python/.env/bin/python
+
+import sys
+sys.path[0:0] = [
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Flask-0.9-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Flask_KVSession-0.3.2-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.env/lib/python2.7/site-packages',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Jinja2-2.6-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Werkzeug-0.8.3-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/google_api_python_client-1.1-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/httplib2-0.8-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/itsdangerous-0.17-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/python_gflags-2.0-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/simplekv-0.5-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/wsgiref-0.1.2-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/app',
+  ]
+
+import signin
+
+if __name__ == '__main__':
+    sys.exit(signin.launch())

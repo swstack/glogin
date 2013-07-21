@@ -1,0 +1,46 @@
+#!/home/stacked/projects/gplus-quickstart-python/.env/bin/python
+
+import sys
+
+sys.path[0:0] = [
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Flask-0.9-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Flask_KVSession-0.3.2-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.env/lib/python2.7/site-packages',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Jinja2-2.6-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/Werkzeug-0.8.3-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/google_api_python_client-1.1-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/httplib2-0.8-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/itsdangerous-0.17-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/python_gflags-2.0-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/simplekv-0.5-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/.buildout/eggs/wsgiref-0.1.2-py2.7.egg',
+  '/home/stacked/projects/gplus-quickstart-python/app',
+  ]
+
+
+_interactive = True
+if len(sys.argv) > 1:
+    _options, _args = __import__("getopt").getopt(sys.argv[1:], 'ic:m:')
+    _interactive = False
+    for (_opt, _val) in _options:
+        if _opt == '-i':
+            _interactive = True
+        elif _opt == '-c':
+            exec(_val)
+        elif _opt == '-m':
+            sys.argv[1:] = _args
+            _args = []
+            __import__("runpy").run_module(
+                 _val, {}, "__main__", alter_sys=True)
+
+    if _args:
+        sys.argv[:] = _args
+        __file__ = _args[0]
+        del _options, _args
+        __file__f = open(__file__)
+        exec(compile(__file__f.read(), __file__, "exec"))
+        __file__f.close(); del __file__f
+
+if _interactive:
+    del _interactive
+    __import__("code").interact(banner="", local=globals())
